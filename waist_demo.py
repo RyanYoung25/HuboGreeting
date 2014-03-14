@@ -11,6 +11,7 @@ import roslib; roslib.load_manifest('waist_demo')
 import rospy
 import time
 import sys
+from wave import *
 from hubomsg.msg import *
 from cob_people_detection_msgs.msg import *
 '''
@@ -98,6 +99,9 @@ class waist_demo:
             print self.LABEL + " is not in the frame!"
         else:
             print self.LABEL + " is centered!"
+            #blocking call to the hand wave script
+            wave.wave()
+
 
     '''
     The call back for the maestro message channel. It just updates the position
